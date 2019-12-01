@@ -1,5 +1,5 @@
 {#{% extends 'base.html.twig' %}#}
-<link rel="stylesheet" href={{ asset('css/style.css') }}>
+<link rel="stylesheet" href={{ asset('css/style.css') }} xmlns="http://www.w3.org/1999/html">
 {#{% block title %}Formulaire d'enregistrement{% endblock %}#}
 
 {% block body %}
@@ -7,8 +7,9 @@
     <form class="box" method="get">
         <h1>Formulaire d'enregistrement</h1>
         {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.nom, {'attr':{'class':'form-control'}}) }}
-        {{ form_row(registrationForm.prenom, {'attr':{'class':'form-control'}}) }}
+      <table align="center">  <tr><td>
+        {{ form_row(registrationForm.nom, {'attr':{'class':'form-control'}}) }}</td>
+            <td> {{ form_row(registrationForm.prenom, {'attr':{'class':'form-control'}}) }}</td></tr></table>
         {{ form_label(registrationForm.email,'Adresse électronique') }}
         {{ form_widget(registrationForm.email, {'attr':{'class':'form-control'}}) }}
         {{ form_errors(registrationForm.email) }}
