@@ -58,6 +58,7 @@ class User implements UserInterface
      */
     private $prenom;
 
+
     public function __construct()
     {
         $this->cours = new ArrayCollection();
@@ -204,4 +205,7 @@ class User implements UserInterface
 
         return $this;
     }
+
+
+
 }
