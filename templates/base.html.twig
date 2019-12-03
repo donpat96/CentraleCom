@@ -21,10 +21,10 @@
 </head>
 
 <body id="page-top">
-{% block body %}
+
 <!-- Page Wrapper -->
 <div id="wrapper">
-
+    {% block body %}
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -63,8 +63,9 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="buttons.html">Buttons</a>
-                    <a class="collapse-item" href="cards.html">Cards</a>
+                    {% for cour in cours %}
+                    <a class="collapse-item" href="{{ path('cour.detail', {id: cour.id}) }}">{{cour.libelle}}</a>
+                    {% endfor %}
                 </div>
             </div>
         </li>
@@ -356,7 +357,7 @@
                             </div>
                         </div>
                     </div>
-
+{% block detail %}
                     <!-- Earnings (Monthly) Card Example -->
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-success shadow h-100 py-2">
@@ -373,7 +374,7 @@
                             </div>
                         </div>
                     </div>
-
+{% endblock %}
                     <!-- Earnings (Monthly) Card Example -->
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-info shadow h-100 py-2">
@@ -425,6 +426,7 @@
                     <!-- Area Chart -->
                     <div class="col-xl-8 col-lg-7">
                         <div class="card shadow mb-4">
+
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
@@ -442,11 +444,12 @@
                                 </div>
                             </div>
                             <!-- Card Body -->
+                            {% block courBlock %}
                             <div class="card-body">
                                 <div class="chart-area">
                                     <canvas id="myAreaChart"></canvas>
                                 </div>
-                            </div>
+                            </div> {% endblock %}
                         </div>
                     </div>
 

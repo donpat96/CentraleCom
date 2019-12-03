@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+{% block detail %}
+    {% if cour  %}
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">tel cour</strong>
+                <h3 class="mb-0">{{ cour.libelle }}</h3>
+                <p class="card-text mb-auto">{{ cour.id }}</p>
+                <a href="#" class="stretched-link">Continue reading</a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img src=""
+                     width = "150px"
+                     height= "150px"
+                     class="rounded-circle"
+                >
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-danger">
+            cour innexistant!!
+        </div>
+    {% endif %}
+{% endblock %}
+{% endblock %}
+
