@@ -23,12 +23,14 @@ class CourController extends AbstractController
 
         return $this->render('cour/index.html.twig', [
             'cours' => $cours,
-        ]);}
+        ]);
+    }
 
     /**
      * @Route("/detail/{id<\d+>}", name="cour.detail")
      */
-    public function detailCour(Cour $cour= null) {
+    public function detailCour(Cour $cour = null)
+    {
         return $this->render('cour/detail.html.twig',
             array(
                 'cour' => $cour

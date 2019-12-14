@@ -17,8 +17,8 @@ class UserController extends AbstractController
         $user = new User();
         $user->setEmail('diarki.talaiporia@gmail.com');
         $cours = $userRepo->findBy([
-        'id' => $user->getId(),
-    ]);
+            'id' => $user->getId(),
+        ]);
 
         return $this->render('cour/index.html.twig', [
             'cours' => $cours,]);
